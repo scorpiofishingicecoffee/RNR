@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useContext } from "react";
 import { AuthContext } from "./AuthProvider";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function SignUpForm({ onLogin }) {
@@ -12,6 +12,7 @@ function SignUpForm({ onLogin }) {
   const [password, setPassword] = useState("password123");
   const [passwordConfirmation, setPasswordConfirmation] =
     useState("password123");
+  const [isLoading, setIsLoading] = useState(false);
   const notify = () => toast("You've successfully registered!🔒 🔓 🔏 🔐 🔑 🗝");
 
   function handleSubmit(e) {

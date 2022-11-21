@@ -1,9 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Routes } from "react-router-dom";
+import Games from "./Games";
 import AuthProvider from "./AuthProvider";
 import Protected from "./Protected";
 import { initMiddleware } from "devise-axios";
+import { createRoot } from "react-dom/client";
 import { Link } from "react-router-dom";
 import HomePage from "./HomePage";
 import SignUpForm from "./SignUpForm";

@@ -12,6 +12,7 @@ function SignUpForm({ onLogin }) {
   const [password, setPassword] = useState("password123");
   const [passwordConfirmation, setPasswordConfirmation] =
     useState("password123");
+
   const notify = () => toast("You've successfully registered!🔒 🔓 🔏 🔐 🔑 🗝");
 
   function handleSubmit(e) {
