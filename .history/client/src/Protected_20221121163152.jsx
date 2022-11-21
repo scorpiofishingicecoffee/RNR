@@ -7,6 +7,7 @@ import Games from "./Games";
 import NewGameForm from "./NewGameForm";
 import GameItem from "./GameItem";
 import UpdateGameForm from "./UpdateGameForm";
+import Search from "./Search";
 
 // const API_URL = "/api/v1/games";
 // function getAPIDATA() {

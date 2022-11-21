@@ -13,16 +13,7 @@ import UpdateGameForm from "./UpdateGameForm";
 //   return axios.get(API_URL).then((response) => response.data);
 // }
 function Protected() {
-  //   useEffect(() => {
-  //     let mounted = true;
-  //     getAPIDATA().then((items) => {
-  //       if (mounted) {
-  //         setGames(items);
-  //       }
-  //     });
-  //     return () => (mounted = false);
-  //   }, []);
-  //authentication
+
   const auth = useContext(AuthContext);
   //games display
   const [games, setGames] = useState([]);

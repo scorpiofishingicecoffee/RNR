@@ -7,6 +7,7 @@ import Games from "./Games";
 import NewGameForm from "./NewGameForm";
 import GameItem from "./GameItem";
 import UpdateGameForm from "./UpdateGameForm";
+import Search from "./Search";
 
 // const API_URL = "/api/v1/games";
 // function getAPIDATA() {
@@ -48,7 +49,6 @@ function Protected() {
   function handleDeleteGame(deletedGame) {
     setGames((game) => games.filter((game) => game.id !== deletedGame.id));
   }
-
 
   return (
     <div className="Protected">

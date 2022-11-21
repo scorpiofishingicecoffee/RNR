@@ -49,7 +49,6 @@ function Protected() {
     setGames((game) => games.filter((game) => game.id !== deletedGame.id));
   }
 
-
   return (
     <div className="Protected">
       <HomePage />

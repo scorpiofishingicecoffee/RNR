@@ -7,6 +7,7 @@ import Games from "./Games";
 import NewGameForm from "./NewGameForm";
 import GameItem from "./GameItem";
 import UpdateGameForm from "./UpdateGameForm";
+import Search from "./Search";
 
 // const API_URL = "/api/v1/games";
 // function getAPIDATA() {
@@ -49,6 +50,20 @@ function Protected() {
     setGames((game) => games.filter((game) => game.id !== deletedGame.id));
   }
 
+    const [loading, setLoading] = useState(false);
+    const [games, setGames] = useState([]);
+    const [searchGame, setSearchGame] = useState("");
+
+    useEffect(() => {
+      const loadGames = async () => {
+        setLoading(true);
+        const response = await axios.get("http://127.0.0.1:3000/api/v1/games");
+        setGames(response.data);
+        setLoading(false);
+      };
+
+      loadGames();
+    }, []);
 
   return (
     <div className="Protected">
@@ -61,6 +76,7 @@ function Protected() {
         {/* ! means if the person is not authenticated */}
         {!auth.authenticated && <p>You're not logged in.</p>}
         <NewGameForm onAddGame={handleAddGame} />
+        <Search />
       </div>
       <div className="GameListDelete">
         <h1 className="App-Title">Upcoming Games</h1>

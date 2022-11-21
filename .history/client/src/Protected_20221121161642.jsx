@@ -49,7 +49,6 @@ function Protected() {
     setGames((game) => games.filter((game) => game.id !== deletedGame.id));
   }
 
-
   return (
     <div className="Protected">
       <HomePage />
@@ -62,6 +61,8 @@ function Protected() {
         {!auth.authenticated && <p>You're not logged in.</p>}
         <NewGameForm onAddGame={handleAddGame} />
       </div>
+      <Search />
+
       <div className="GameListDelete">
         <h1 className="App-Title">Upcoming Games</h1>
         {games.map((game) => (

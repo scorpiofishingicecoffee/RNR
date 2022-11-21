@@ -7,6 +7,7 @@ import Games from "./Games";
 import NewGameForm from "./NewGameForm";
 import GameItem from "./GameItem";
 import UpdateGameForm from "./UpdateGameForm";
+import Search from "./Search";
 
 // const API_URL = "/api/v1/games";
 // function getAPIDATA() {
@@ -61,6 +62,7 @@ function Protected() {
         {/* ! means if the person is not authenticated */}
         {!auth.authenticated && <p>You're not logged in.</p>}
         <NewGameForm onAddGame={handleAddGame} />
+        <Search />
       </div>
       <div className="GameListDelete">
         <h1 className="App-Title">Upcoming Games</h1>
