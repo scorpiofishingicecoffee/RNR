@@ -1,16 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AuthProvider from "./AuthProvider";
-import Protected from "./Protected";
+import AuthProvider from "./auth/AuthProvider";
+import Protected from "./pages/Protected";
 import { initMiddleware } from "devise-axios";
 import { Link } from "react-router-dom";
-import HomePage from "./HomePage";
-import SignUpForm from "./SignUpForm";
-import LoginForm from "./LoginForm";
-import NewGameForm from "./NewGameForm";
-import UpdateGameForm from "./UpdateGameForm";
-
+import HomePage from "./pages/HomePage";
+import SignUpForm from "./auth/SignUpForm";
+import LoginForm from "./auth/LoginForm";
+import NewGameForm from "./games/NewGameForm";
+import UpdateGameForm from "./games/UpdateGameForm";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
 initMiddleware();
 
 const router = createBrowserRouter([
@@ -19,8 +20,10 @@ const router = createBrowserRouter([
     element: (
       <>
         <div className="App">
-          <h1>Video Game Database</h1>
-          <h3>Sign up or Login to access the video game database</h3>
+          <h1 className="Title">Video Game Database</h1>
+          <h3 className="Desc">
+            Sign up or Login to access the video game database
+          </h3>
           <br />
           <button className="cybr-btn">
             <Link to="signup">
@@ -97,6 +100,6 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <AuthProvider>
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
   </AuthProvider>
 );

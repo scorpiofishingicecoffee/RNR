@@ -40,6 +40,7 @@ module UpcomingGames
     # Adding back cookies and session middleware
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
+    config.middleware.insert_after(ActionDispatch::Cookies, ActionDispatch::Session::CookieStore)
     config.session_store :cookie_store, key: '_your_app_session'
 
     # Use SameSite=Strict for all cookies to help protect against CSRF
@@ -47,5 +48,6 @@ module UpcomingGames
 
     #debugging purposes
     config.debug_exception_response_format = :api
+
   end
 end

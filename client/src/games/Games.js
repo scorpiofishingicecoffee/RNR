@@ -1,11 +1,6 @@
 import React from "react";
-import "./App.css";
+import "../apps/App.css";
 import { Container } from "react-bootstrap";
-import { Row } from "react-bootstrap";
-import { Col } from "react-bootstrap";
-import { Button } from "react-bootstrap";
-import { useEffect, useState } from "react";
-import axios from "axios";
 
 function Games(props) {
   const games = props.games.map((game) => (

@@ -1,17 +1,18 @@
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Platforms from "./Platforms";
+import Genres from "./Genres";
+import Releasedate from "./Releasedate";
 
 const initialState = {
   name: "",
-  release_date: "",
-  platforms: "",
-  genres: "",
 };
 
 function NewGameForm({ onAddGame }) {
   const [formData, setFormData] = useState(initialState);
   const notify = () => toast("Has been added! ＼(^o^)／⏳🔧⚙️🕰️⏰");
+  console.log("GameInfo", formData);
 
   function handleChange(e) {
     setFormData({
@@ -38,12 +39,14 @@ function NewGameForm({ onAddGame }) {
 
   return (
     <div className="Card">
-      <h2>Add Some</h2>
-      <h2>New Game</h2>
+      <h2>Add Some New Game</h2>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="title">Name:</label>
+        <label htmlFor="name" className="lbl">
+          Name:
+        </label>
         <br />
         <input
+          className="gamefield"
           placeholder="TYPE HERE"
           type="text"
           id="name"
@@ -51,36 +54,11 @@ function NewGameForm({ onAddGame }) {
           onChange={handleChange}
         />
         <br />
-        <label htmlFor="notes">Release Date:</label>
-        <br />
-        <input
-          placeholder="TYPE HERE"
-          type="text"
-          id="release_date"
-          value={formData.release_date}
-          onChange={handleChange}
-        />
-        <br />
-        <label htmlFor="description">Platforms: </label>
-        <br />
-        <input
-          placeholder="TYPE HERE"
-          type="text"
-          id="platforms"
-          value={formData.platforms}
-          onChange={handleChange}
-        />
-        <br />
-        <label htmlFor="rating">Genres: </label>
-        <br />
-        <input
-          placeholder="TYPE HERE"
-          type="text"
-          id="genres"
-          value={formData.genres}
-          onChange={handleChange}
-        />
-        <br />
+        <Releasedate/>
+        <div className="dropdown-container">
+          <Platforms />
+          <Genres />
+        </div>
         <br />
         <button className="sml-btn" type="submit" onClick={notify}>
           Add

@@ -52,3 +52,5 @@ end
 # end
 gem "active_model_serializers", "~> 0.10.13"
 gem 'devise_token_auth'
+
+gem "rails_same_site_cookie", "~> 0.1.9"

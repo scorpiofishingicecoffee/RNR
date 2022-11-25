@@ -9,9 +9,9 @@ function SignUpForm({ onLogin }) {
   const navigate = useNavigate();
   const { handleRegister } = useContext(AuthContext);
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("password123");
+  const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] =
-    useState("password123");
+    useState("");
   const notify = () => toast("You've successfully registered!🔒 🔓 🔏 🔐 🔑 🗝");
 
   function handleSubmit(e) {
@@ -29,9 +29,10 @@ function SignUpForm({ onLogin }) {
     <div className="Signup">
       <form onSubmit={handleSubmit} className="form">
         <h1>Sign Up Form</h1>
-        <label>Email</label>
+        <label className="label">Email</label>
         <br />
         <input
+          className="field"
           placeholder="TYPE YOUR EMAIL HERE"
           type="email"
           id="email"
@@ -41,9 +42,10 @@ function SignUpForm({ onLogin }) {
         />
         <br />
         <br />
-        <label>Password</label>
+        <label className="label">Password</label>
         <br />
         <input
+          className="field"
           placeholder="TYPE YOUR PASSWORD HERE"
           type="password"
           id="password"
@@ -53,9 +55,10 @@ function SignUpForm({ onLogin }) {
         />
         <br />
         <br />
-        <label>Confirm Password</label>
+        <label className="label">Confirm Password</label>
         <br />
         <input
+          className="field"
           placeholder="RE-TYPE YOUR PASSWORD HERE"
           type="password"
           id="password_confirmation"
