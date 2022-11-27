@@ -1,17 +1,19 @@
+//packages
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AuthProvider from "./auth/AuthProvider";
-import Protected from "./pages/Protected";
 import { initMiddleware } from "devise-axios";
 import { Link } from "react-router-dom";
+
+//files
+import AuthProvider from "./auth/AuthProvider";
+import Protected from "./pages/Protected";
 import HomePage from "./pages/HomePage";
 import SignUpForm from "./auth/SignUpForm";
 import LoginForm from "./auth/LoginForm";
 import NewGameForm from "./games/NewGameForm";
 import UpdateGameForm from "./games/UpdateGameForm";
-import { Provider } from "react-redux";
-import { PersistGate } from "redux-persist/integration/react";
+
 initMiddleware();
 
 const router = createBrowserRouter([
@@ -100,6 +102,6 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <AuthProvider>
-      <RouterProvider router={router} />
+    <RouterProvider router={router} />
   </AuthProvider>
 );

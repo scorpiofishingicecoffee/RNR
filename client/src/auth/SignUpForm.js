@@ -10,8 +10,7 @@ function SignUpForm({ onLogin }) {
   const { handleRegister } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordConfirmation, setPasswordConfirmation] =
-    useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const notify = () => toast("You've successfully registered!🔒 🔓 🔏 🔐 🔑 🗝");
 
   function handleSubmit(e) {
@@ -70,7 +69,6 @@ function SignUpForm({ onLogin }) {
         <br />
         <button
           className="cybr-btn"
-          role="button"
           type="submit"
           onClick={handleSubmit}
           onClick={notify}
@@ -82,11 +80,7 @@ function SignUpForm({ onLogin }) {
         </button>
         <br />
         <br />
-        <button
-          className="cybr-btn"
-          role="button"
-          onClick={() => navigate("/")}
-        >
+        <button className="cybr-btn" onClick={() => navigate("/")}>
           Cancel<span aria-hidden> To go back</span>
           <span aria-hidden className="cybr-btn__glitch">
             Cancel Cancel Cancel

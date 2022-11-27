@@ -1,26 +1,19 @@
 class ApplicationController < ActionController::API
-  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-  rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
-  include DeviseTokenAuth::Concerns::SetUserByToken
-  before_action :configure_permitted_parameters, if: :devise_controller?
   include ActionController::Cookies
 
-  protected
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+  rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
 
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
-  end
+  private
 
-  # private
+  #will iterate through the user id and will return users with similar id
   def current_user
-    User.find_by(id: session[:user_id])
+  User.find_by(id: session[:user_id])
   end
-#
-#   def record_not_found(errors)
-#     render json: errors.message, status: :not_found
-#   end
-#
-#   def invalid_record(invalid)
-#     render json: invalid.record.errors, status: :unprocessable_entity
-#   end
+  def record_not_found(errors)
+  render json: errors.message, status: :not_found
+  end
+  def invalid_record(invalid)
+  render json: invalid.record.errors, status: :unproccessable_entity
+  end
 end

@@ -1,10 +1,11 @@
 import { useState, useContext } from "react";
 import { AuthContext } from "./AuthProvider";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
 
+
+//access-token: p-E6ged0Df4xO3tLGD9PjQ
 
 function LoginForm({ onLogin }) {
   const navigate = useNavigate();
@@ -15,15 +16,6 @@ function LoginForm({ onLogin }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-        fetch("/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email}),
-        })
-          .then((r) => r.json())
-          .then((user) => onLogin(user));
     handleLogin({ email, password }, navigate);
     let item = { email, password };
     console.warn(item);
@@ -66,7 +58,6 @@ function LoginForm({ onLogin }) {
         <br />
         <button
           className="cybr-btn"
-          role="button"
           type="submit"
           onClick={notify}
         >
@@ -79,7 +70,6 @@ function LoginForm({ onLogin }) {
         <br />
         <button
           className="cybr-btn"
-          role="button"
           onClick={() => navigate("/")}
         >
           Cancel<span aria-hidden> Here</span>

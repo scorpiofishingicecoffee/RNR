@@ -17,7 +17,12 @@ class Api::V1::GamesController < ApplicationController
   end
 
  def create
-    @games = Game.create(game_params)
+    @games = Game.new(
+    name: game_params[:name],
+    release_date: game_params[:release_date],
+    platforms: game_params[:platforms],
+    genres: game_params[:genres]
+    )
     if @games
       @games.save
        render json: @games, status: :created
@@ -54,6 +59,6 @@ class Api::V1::GamesController < ApplicationController
   end
 #inside of the function [] includes the attributes of the api
   def game_params
-    params.require(:game).permit([:name, :release_date, :platforms, :genres])
+    params.require(:game).permit([:id, :name, :release_date, :platforms, :genres])
   end
 end

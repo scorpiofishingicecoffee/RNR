@@ -1,11 +1,6 @@
-# frozen_string_literal: true
-
-class User < ActiveRecord::Base
-  extend Devise::Models
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-  include DeviseTokenAuth::Concerns::User
+class User < ApplicationRecord
+  has_secure_password
+  validates :email, format: /\w+@\w+\.{1}{a-zA-Z}{2,}/,
+  presence: true, uniqueness: true
+  has_many :games
 end
-
