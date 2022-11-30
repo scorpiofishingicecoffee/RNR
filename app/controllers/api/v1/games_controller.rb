@@ -1,6 +1,6 @@
 class Api::V1::GamesController < ApplicationController
-  before_action :set_game, only: %i[:show, :update, :destroy]
-  # before_action :authenticate_user!
+  before_action :set_game, only: %i[:show, :create, :update, :destroy]
+  wrap_parameters format: []
   # this is done
   def index
     @games = Game.all
@@ -15,13 +15,13 @@ class Api::V1::GamesController < ApplicationController
       render json: {error:"Not Found"}, status: :not_found
     end
   end
-
+#mass assignment
  def create
-    @games = Game.new(
+    @games = Game.create(
     name: game_params[:name],
     release_date: game_params[:release_date],
     platforms: game_params[:platforms],
-    genres: game_params[:genres]
+    genres: game_params[:genres],
     )
     if @games
       @games.save
@@ -55,10 +55,10 @@ class Api::V1::GamesController < ApplicationController
   private
 
   def set_game
-    @games = Game.find(params[:id])
+    @games = Game.find_by(params[:id])
   end
 #inside of the function [] includes the attributes of the api
   def game_params
-    params.require(:game).permit([:id, :name, :release_date, :platforms, :genres])
+    params.permit([:name, :release_date, :platforms, :genres])
   end
 end

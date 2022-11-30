@@ -1,17 +1,17 @@
 import React from "react";
 import "../apps/App.css";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 
 function Games(props) {
+
   const games = props.games.map((game) => (
     <div key={game.id}>
-      <br />
       <h2>{game.name}</h2>
-      <br />
       <p>Release Date: {game.release_date}</p>
       <p>Platforms: {game.platforms}</p>
       <p>Genres: {game.genres}</p>
-      <br />
     </div>
   ));
 

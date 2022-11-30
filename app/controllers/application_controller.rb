@@ -4,15 +4,14 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
 
-  private
-
-  #will iterate through the user id and will return users with similar id
   def current_user
   User.find_by(id: session[:user_id])
   end
+
   def record_not_found(errors)
   render json: errors.message, status: :not_found
   end
+
   def invalid_record(invalid)
   render json: invalid.record.errors, status: :unproccessable_entity
   end

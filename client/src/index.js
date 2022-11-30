@@ -6,13 +6,14 @@ import { initMiddleware } from "devise-axios";
 import { Link } from "react-router-dom";
 
 //files
-import AuthProvider from "./auth/AuthProvider";
 import Protected from "./pages/Protected";
 import HomePage from "./pages/HomePage";
 import SignUpForm from "./auth/SignUpForm";
 import LoginForm from "./auth/LoginForm";
 import NewGameForm from "./games/NewGameForm";
 import UpdateGameForm from "./games/UpdateGameForm";
+import AuthProvider from "./auth/AuthProvider";
+import ErrorBoundary from "./auth/ErrorBoundary";
 
 initMiddleware();
 
@@ -101,7 +102,9 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <AuthProvider>
+<AuthProvider>
+  <ErrorBoundary>
     <RouterProvider router={router} />
-  </AuthProvider>
+    </ErrorBoundary>
+    </AuthProvider>
 );

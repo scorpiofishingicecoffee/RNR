@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
-  validates :email, format: /\w+@\w+\.{1}{a-zA-Z}{2,}/,
-  presence: true, uniqueness: true
-  has_many :games
+  validates_presence_of :email
+  validates :email, uniqueness: true
+      # has_many :games
 end
