@@ -26,7 +26,6 @@ Things you may want to cover:
 # user diagram flow chart
 
 
-![Rainbow Gradient Together Pride Instagram Post](https://user-images.githubusercontent.com/105265074/205170494-9901b812-df83-4a98-97c3-231669a0f2cc.png)
 ![Reader User Journey Diagram drawio](https://user-images.githubusercontent.com/105265074/205170500-01fe9934-729b-4d2f-8f8c-10b7509edcfe.png)
 ![updateddiagram](https://user-images.githubusercontent.com/105265074/205170501-e26efcb5-1d9c-41ec-a86b-03dcdcc668f0.png)
 ![admin user journey (1)](https://user-images.githubusercontent.com/105265074/205170507-1451bde1-213c-4642-89ce-abf3c81da3b8.png)
